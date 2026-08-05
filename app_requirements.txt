@@ -1,0 +1,7 @@
+# Required no matter which backend you use:
+streamlit
+google-genai
+
+# Only needed if you also want the Ollama (local) backend.
+# Not required for Gemini -- safe to leave commented out.
+# ollama
