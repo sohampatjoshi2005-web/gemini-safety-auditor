@@ -1,0 +1,135 @@
+{
+  "workstream1_interpretability": {
+    "baseline_iid": {
+      "accuracy": 0.8533333539962769,
+      "safety_violation_rate": 0.07333332300186157,
+      "false_positive_rate": 0.2199999988079071,
+      "n": 300
+    },
+    "baseline_heldout_concepts": {
+      "accuracy": 0.42500001192092896,
+      "safety_violation_rate": 0.38749998807907104,
+      "false_positive_rate": 0.762499988079071,
+      "n": 160
+    },
+    "probe_accuracy_train_concepts": 1.0,
+    "probe_accuracy_heldout_concepts": 0.425,
+    "patched": {
+      "accuracy": 0.6633333563804626,
+      "safety_violation_rate": 0.026666641235351562,
+      "false_positive_rate": 0.6466666460037231,
+      "n": 300
+    },
+    "sae_dead_feature_frac": 0.0625,
+    "sae_top_unsafe_feature": 23
+  },
+  "workstream2_redteam": {
+    "baseline": {
+      "accuracy": 0.9833333492279053,
+      "safety_violation_rate": 0.03333336114883423,
+      "false_positive_rate": 0.0,
+      "n": 300
+    },
+    "asr_before_defense": 0.5133333333333333,
+    "asr_after_defense": 0.06666666666666667,
+    "defended_metrics": {
+      "accuracy": 0.5199999809265137,
+      "safety_violation_rate": 0.0,
+      "false_positive_rate": 0.9599999785423279,
+      "n": 300
+    },
+    "asr_vs_eps": {
+      "0.25": 0.0,
+      "0.5": 0.0,
+      "0.75": 0.05,
+      "1.0": 0.1,
+      "1.5": 0.375,
+      "2.0": 0.45,
+      "3.0": 0.525
+    }
+  },
+  "workstream3_systems": {
+    "results": [
+      {
+        "name": "(a) base model only",
+        "batch_size": 1,
+        "p50_ms": 0.02278300001989919,
+        "p90_ms": 0.023305599984269065,
+        "throughput": 43892.37585597056
+      },
+      {
+        "name": "(b) base + safety classifier",
+        "batch_size": 1,
+        "p50_ms": 0.04351000001179273,
+        "p90_ms": 0.0800124999614127,
+        "throughput": 22983.222241529882
+      },
+      {
+        "name": "(c) base + classifier + steering hook",
+        "batch_size": 1,
+        "p50_ms": 0.0567600000067614,
+        "p90_ms": 0.0775390000853804,
+        "throughput": 17618.04087175612
+      },
+      {
+        "name": "(a) base model only",
+        "batch_size": 32,
+        "p50_ms": 0.02649149996614142,
+        "p90_ms": 0.0305529000002025,
+        "throughput": 1207934.6220825152
+      },
+      {
+        "name": "(b) base + safety classifier",
+        "batch_size": 32,
+        "p50_ms": 0.056711000070208684,
+        "p90_ms": 0.06378470005756753,
+        "throughput": 564264.4277192033
+      },
+      {
+        "name": "(c) base + classifier + steering hook",
+        "batch_size": 32,
+        "p50_ms": 0.07391099995857076,
+        "p90_ms": 0.08448029994951867,
+        "throughput": 432953.14659437595
+      },
+      {
+        "name": "(a) base model only",
+        "batch_size": 256,
+        "p50_ms": 0.037996999935785425,
+        "p90_ms": 0.038868999990882,
+        "throughput": 6737374.014596879,
+        "overhead_pct_vs_base": 0.0
+      },
+      {
+        "name": "(b) base + safety classifier",
+        "batch_size": 256,
+        "p50_ms": 0.06889450003200182,
+        "p90_ms": 0.0802573999749257,
+        "throughput": 3715826.3704807614,
+        "overhead_pct_vs_base": 81.31563057197378
+      },
+      {
+        "name": "(c) base + classifier + steering hook",
+        "batch_size": 256,
+        "p50_ms": 0.0899510000635928,
+        "p90_ms": 0.1073844999723406,
+        "throughput": 2845993.928016534,
+        "overhead_pct_vs_base": 136.73184781853607
+      }
+    ]
+  },
+  "workstream4_rl": {
+    "pre": {
+      "violation_rate": 1.0,
+      "diversity": 3.380016565322876,
+      "unsafe_proj": 2.6264007091522217
+    },
+    "post": {
+      "violation_rate": 0.0,
+      "diversity": 3.3186557292938232,
+      "unsafe_proj": -8.483588218688965
+    },
+    "diversity_drop_pct": 1.815400452725037,
+    "reward_hacking_detected": false
+  }
+}
