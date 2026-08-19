@@ -1,5 +1,0 @@
-# For running streamlit_app.py locally or deploying to streamlit.io.
-# Deliberately does NOT include torch/transformers/trl/sae_lens -- the
-# dashboard only reads results/summary.json, it never runs the model.
-streamlit>=1.38
-pandas>=2.0
